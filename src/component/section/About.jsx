@@ -76,6 +76,11 @@ const IntroduceContent = styled.p`
         vertical-align: middle;
     }
 
+    & > a {
+        color : white;
+        text-decoration : none;
+    }
+
 
     @media screen and (max-width: 1024px) {
         font-size : 0.875rem;
@@ -148,17 +153,23 @@ const SkillImg = styled.div`
     justify-contents : space-around;
     margin : 4% 4% 1% 4%;
 
-    @media screen and (max-width: 1024px) {
-        width : 80px;
-        height : 80px;
-        margin : 3% 3%;
-    }
 
     & > img {
         width : 100%;
         height : 100%;
         object-fit: cover;
         vertical-align: middle;
+    }
+
+    @media screen and (max-width: 1024px) {
+        width : 80px;
+        height : 80px;
+        margin : 3% 3%;
+    }
+
+    @media screen and (max-width: 768px) {
+        width : 60px;
+        height : 60px;
     }
 `;
 
@@ -182,7 +193,7 @@ function Home(props) {
                     <IntroduceTitle>CONTECT</IntroduceTitle>
                     <IntroduceContent contect>&#128241; 010-4258-3558</IntroduceContent>
                     <IntroduceContent contect>&#128231; rkdalswl1203@g.shingu.ac.kr</IntroduceContent>
-                    <IntroduceContent contect><img src={`${publicUrl}/img/skill/github_icon.png`} alt="github_icon" /> GitHub</IntroduceContent>
+                    <IntroduceContent contect><img src={`${publicUrl}/img/skill/github_icon.png`} alt="github_icon" /> <a href="https://github.com/kanmj1203">https://github.com/kanmj1203</a></IntroduceContent>
                 </Introduce>
             </LeftArticle>
 

@@ -34,6 +34,10 @@ const Logo = styled.div`
         color : #7A9DE2;
         transition:all 0.3s ease-out;
     }
+
+    @media screen and (max-width: 768px) {
+        font-size : 1.5rem;
+    }
 `;
 
 const NavContainer = styled.nav`
@@ -57,6 +61,10 @@ const NavContainer = styled.nav`
             color : #d9d9d9;
             transition:all 0.3s ease-out;
         }
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size : 1rem;
     }
 `;
 

@@ -82,6 +82,13 @@ function App() {
         setXY({x:e.clientX ,y:e.clientY });
         // console.log(xy);
     }
+// 새로고침 시 맨 위로
+  useEffect(() => {
+      window.onbeforeunload = function pushRefresh() {
+        window.scrollTo(0, 0);
+      };
+  
+  }, []);
 
   const scrollRef = useRef(null);
 

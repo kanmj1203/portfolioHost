@@ -18,6 +18,9 @@ const FooterCopyright = styled.div`
     left : 5vw;
     font-size: .8rem;
     color : #686868;
+    @media screen and (max-width: 768px) {
+      font-size : .625rem;
+    }
 `;
 
 const FooterLinks = styled.div`

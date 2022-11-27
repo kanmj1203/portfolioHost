@@ -76,7 +76,7 @@ const LeftBox = styled.div`
     
     @media screen and (max-width: 768px) {
         height : 30%;
-        width : 100%;
+        width : 90%;
         margin-bottom : 3%;
     }
 `;
@@ -201,6 +201,7 @@ const DesignButtonWrap = styled.div`
     background-color : #7A9DE2;
     font-size : 1.25rem;
     color : #414141;
+    cursor : pointer;
     transition:all 0.3s ease-out;
     
         &:hover {

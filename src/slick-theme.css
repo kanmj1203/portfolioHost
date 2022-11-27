@@ -145,7 +145,7 @@
     .slick-dots {
         left : 50%;
         transform : translateX(-50%);
-        bottom : -45px;
+        bottom : -35px;
     }
 }
 

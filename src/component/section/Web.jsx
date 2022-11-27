@@ -72,7 +72,7 @@ const LeftBox = styled.div`
     
     @media screen and (max-width: 768px) {
         height : 30%;
-        width : 100%;
+        width : 90%;
         // margin-bottom : 10%;
     }
 `;
@@ -224,7 +224,7 @@ const WebButtonWrap = styled.div`
     font-size : 1.25rem;
     color : #414141;
     transition:all 0.3s ease-out;
-    
+    cursor : pointer;
         &:hover {
             transition:all 0.3s ease-out;
             background-color : #adceff;
@@ -448,7 +448,7 @@ function Web(props) {
     const OpenFile =(e, link) => {
         e.preventDefault();
         
-        link = link.startsWith('http:') ? link : publicUrl+link;
+        link = link.startsWith('http') ? link : publicUrl+link;
         
         // window.location.href=link;
         window.open(link, '_blank', 'noreferrer');
