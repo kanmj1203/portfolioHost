@@ -1,0 +1,59 @@
+
+*{
+  box-sizing: border-box;
+  margin: 0px auto;
+
+}
+
+body {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-family:'IM_Hyemin-Bold'
+  }
+
+canvas {
+  /* background-color : ivory; */
+  background-image:url('https://i.pinimg.com/564x/07/9b/3c/079b3cf771ff862dcf2658fced90ed60.jpg');
+  background-size : 100%;
+
+}
+
+@font-face {
+font-family: 'IM_Hyemin-Bold';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+
+.content {
+  width : 1002px;
+  height : auto;
+  margin-top : 15px;
+  border : solid 1px black;
+}
+
+/* 상단 게임 이름 */
+.top {
+  text-align : left;
+  padding : 15px;
+  background-color: #cccccc;
+}
+
+h3 {
+  display:inline-block;
+}
+
+/* index에서 게임 화면 보이는 곳 */
+.container {
+  width: 1000px;
+  height: 700px;
+  margin:auto;
+}
+
+/* 하단 조작키 설명 */
+.bottom {
+  text-align : center;
+  padding : 30px;
+  background-color: #cccccc;
+}

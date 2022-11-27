@@ -1,0 +1,161 @@
+
+.pointer {
+  position:absolute; 
+  width:20px; 
+  height:20px;
+  border-radius:100%; 
+  background:rgba(94,141,232, 0.3); 
+  transition:all 0.2s ease-out;
+  z-index : 1000;
+  pointer-events: none;
+}
+
+  body {
+    background-color: #f5f5f5;
+    width:100vw;
+    /* margin-left: calc(-50vw + 50%); */
+    height : 100vh;
+    font-size : 16px;
+    overflow-x : hidden;
+     overflow-y : hidden;
+  }
+
+  /* header */
+
+  #header_active a{
+    color : #7A9DE2;
+  }
+
+
+  #main {
+     width : 100vw;
+     height : 100vh;
+     margin-left: calc(-50vw + 50%);
+   }
+
+  /* 스크롤 진행 정도 */
+
+
+  #page_btn_active {
+    width : 13px;
+    height : 13px;
+    background-color : #7A9DE2;
+    /* transition: 0.3s; */
+  }
+
+  /* .container {
+    width : 80%;
+  } */
+
+  /* 스크롤 시 이동할 페이지 섹션 */
+
+  /* 전체 */
+ 
+  .section {
+    text-align: center;
+    justify-content: center;
+    width : 100%;
+    height : 100%;
+    display : flex;
+    align-items: center;
+    flex-direction: column;
+    transition:all 0.5s ease-out;
+  }
+
+  .section>article {
+    text-align: center;
+    
+    /* margin : 0 auto; */
+    /* top : 50vh; */
+    
+  }
+
+  /* HOME 페이지 */
+  #home {
+    
+  }
+  
+  /* 텍스트 */
+  .home_text_box {
+    /* font-family: 'Noto Serif KR', serif; */
+    /* font-family: 'Josefin Slab', serif; */
+    font-family: 'Bungee', cursive;
+    line-height: 1.5;
+    font-size : 4.5rem;
+    /* text-align: center; */
+    
+    /* 드래그 방지 */
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .home_text {
+    color : #5E8DE8;
+    text-shadow: 3px 3px 1px #c2c2c2;
+  }
+
+  .home_text_box .blink {
+    color : #353535;
+    animation: blink 0.5s infinite;
+    font-family: 'Noto Serif KR', sans-serif;
+    font-size : 3.8rem; 
+    vertical-align: top;
+  }
+
+  /* 스크롤 안내 */
+  .scroll_arrow {
+    position : absolute;
+    bottom : 5%;
+  }
+
+  @keyframes blink {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+
+  /* ABOUT 페이지 */
+  #about {
+    background-color: rgb(212, 246, 255);
+  }
+
+  #web {
+    background-color: coral;
+  }
+
+  #design {
+    background-color: aqua;
+  }
+
+  #contact {
+    background-color: #6478FF;
+  }
+
+
+  /* 반응형 */
+  /* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/ 
+@media all and (min-width:768px) and (max-width:1023px) { 
+
+} 
+
+/* 테블릿 세로 (해상도 768px ~ 1023px)*/ 
+@media all and (min-width:768px) and (max-width:1023px) { 
+
+} 
+
+/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/ 
+@media all and (min-width:480px) and (max-width:767px) {
+
+} 
+
+/* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/ 
+@media all and (max-width:479px) {
+
+}
