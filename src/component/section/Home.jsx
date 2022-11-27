@@ -54,8 +54,11 @@ const Blink = styled.span`
     color : #353535;
     animation: ${text_blink} 0.6s infinite;
     font-family: 'Noto Serif KR', sans-serif;
-    font-size : 3rem; 
+    font-size : 3.3rem; 
     vertical-align: top;
+    @media screen and (max-width: 768px) {
+        font-size : 3rem;
+    }
 `;
 
 
