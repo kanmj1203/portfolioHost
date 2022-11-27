@@ -1,0 +1,18 @@
+
+@font-face {
+    /* 사용할 폰트의 이름 */
+    font-family: "Noto Sans KR";
+    src: url("./NotoSansKR-Regular.otf");
+}
+
+@font-face {
+    /* 사용할 폰트의 이름 */
+    font-family: "Noto Serif KR";
+    src: url("./NotoSerifKR-Regular.otf");
+}
+
+@font-face {
+    /* 사용할 폰트의 이름 */
+    font-family: "Bungee";
+    src: url("./Bungee-Regular.ttf");
+}

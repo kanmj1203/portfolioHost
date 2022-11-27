@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/index.css">
+    <title></title>
+    <style>
+
+    </style>
+  </head>
+  <body style="font-family:'IM_Hyemin-Bold'">
+    <div class="content">
+      <div class="top">
+        <h3>비 피하기</h3>
+      </div>
+      <div class="container">
+      <canvas id="canvas" width="1000px" height="700px"></canvas>
+
+        <script>
+
+            const canvas = document.getElementById("canvas"); // 캔버스 생성
+            const context = canvas.getContext("2d"); // 그림 그리기 위해 2d 게임 context값 가져오기
+
+            // 방향키 눌렀을 때 이벤트 받기
+            document.addEventListener("keydown", keyDownHandler, false);
+            document.addEventListener("keyup", keyUpHandler, false);
+
+
+            // 웹 브라우저가 열렸을 때
+            window.onload = () => {
+              wait();
+            }
+
+            //게임시작 전
+            function wait() {
+              context.clearRect(0, 0, canvas.width, canvas.height);
+              context.fillStyle = "black";
+              context.font = "36px IM_Hyemin-Bold";
+              context.fillText("비 피하기", canvas.width/2-90,canvas.height/2 - 50);
+
+              context.fillStyle = "skyblue";
+              context.fillText("easy >> 1", canvas.width/2-90,canvas.height/2 );
+              context.fillText("normal >> 2", canvas.width/2-90,canvas.height/2 + 50);
+              context.fillText("hard >> 3", canvas.width/2-90,canvas.height/2 + 100);
+            }
+
+            // 키 입력 시
+            function keyDownHandler(e) {
+            	if(e.key == 37 || e.key == "ArrowRight") {
+            		rightPressed = true;
+            	} else if(e.key == 39 || e.key == "ArrowLeft") {
+            	  leftPressed = true;
+              } else if(e.key == 13 || e.key == "Enter") {
+                wait();
+              } else if(e.key == 1) {
+                raincount = 12;
+                rainspeed = 5;
+                difficulty = "easy";
+                gameStart();
+              } else if(e.key == 2) {
+                raincount = 8;
+                rainspeed = 8;
+                difficulty = "normal";
+                gameStart();
+              } else if(e.key == 3) {
+                raincount = 3;
+                rainspeed = 12;
+                difficulty = "hard";
+                gameStart();
+              }
+            }
+
+            // 키에서 손 땔 때
+            function keyUpHandler(e) {
+              if (e.key == 37 || e.key == "ArrowRight") {
+                rightPressed = false;
+              } else if (e.key == 39 || e.key == "ArrowLeft") {
+                leftPressed = false;
+              }
+            }
+
+                // 플레이어
+                class Player {
+                  constructor(){
+                    this.x = rectX,
+                    this.y = 660,
+                    this.width = rectWidth,
+                    this.height = rectHeight
+                  }
+                  draw(){
+                   context.fillStyle = "black"
+                   context.fillRect(this.x, this.y, this.width, this.height);
+                  }
+                 }
+
+                // 비
+                class Rain {
+                  constructor(){
+                    this.x = Math.random()*canvas.width,
+                    this.y = 0;
+                    this.direction = 0;
+                    this.width = 5;
+                    this.height = 25;
+                    this.isObstacle = true; //장애물인지 확인
+                  }
+                  draw(){
+                      context.fillStyle = "LightSkyBlue";
+                      context.fillRect(this.x , this.y, this.width, this.height);
+                  }
+                };
+
+                // 하트
+                class Heart {
+                  constructor(){
+                  this.x = Math.random()*canvas.width;
+                  this.y = 0;
+                  this.direction = 0;
+                  this.radius = 10;
+                  this.isObstacle = false;
+                  }
+                  draw(){
+                      context.beginPath();
+                      context.fillStyle = 'pink';
+                      context.arc(this.x , this.y, this.radius, 0, 2*Math.PI);
+                      context.fill();
+                  }
+                };
+
+                // 남은 생명
+                function life() {
+                      context.beginPath();
+                      context.fillStyle = 'pink';
+                      context.arc(30 , 30, 15, 0, 2*Math.PI);
+                      context.fill();
+
+                      context.fillStyle = "gray";
+                      context.font = "20px IM_Hyemin-Bold";
+                      context.fillText(" X " + lifes.length, 50,38);
+                };
+
+                // 현재 점수
+                function scoreView() {
+                  context.fillStyle = "gray";
+                  context.font = "20px IM_Hyemin-Bold";
+                  context.fillText("점수 : " + score, 870,30);
+                }
+
+                // 선택한 난이도
+                function difficultyView() {
+                  context.fillStyle = "gray";
+                  context.font = "20px IM_Hyemin-Bold";
+                  context.fillText(difficulty, canvas.width/2 - 20,30);
+                }
+
+
+                // 변수 설정
+                var difficulty; // 난이도
+                var score = []; // 점수
+                var lifes = []; // 생명
+                var rains=[], hearts=[]; // 비, 하트 여러개 생성
+                var rectX = 0 // 플레이어 x 좌표
+                var rectWidth = 40, rectHeight = 40; // 플레이어 도형 크기
+                var rightPressed = false; //방향키 오른쪽
+                var leftPressed = false; // 방향키 왼쪽
+                var timer = 0; // 실행 횟수
+
+                // 게임 시작
+                function gameStart() {
+                  // 변수 초기화
+                  score = [0]; // 점수
+                  lifes.length = 3; // 생명
+                  rains=[], hearts=[];
+                  rectX = 0;
+                  timer = 0;
+
+                    //그리기
+                    function draw() {
+                      timer++;
+                      context.clearRect(0, 0, canvas.width, canvas.height);
+
+                      // 남은 생명
+                      life();
+                      // 선택한 난이도
+                      difficultyView();
+                      // 점수 표시
+                      scoreView();
+
+                      //플레이어 생성
+                      var player = new Player();
+                      player.draw();
+
+                      if(rightPressed && rectX < canvas.width - rectWidth) {
+                        rectX += 8;
+                      }
+                      else if(leftPressed && rectX > 0) {
+                        rectX -= 8;
+                      }
+
+                      //비, 하트 생성
+                      if (timer % raincount === 0) {
+                        var rain = new Rain();
+                        rains.push(rain);
+                      }
+
+                      // 10초마다 생명 추가 생성
+                      if (timer % 500 === 0) {
+                        var heart = new Heart();
+                        hearts.push(heart);
+                      }
+
+                      // 1초 지날 때 마다 점수 +
+                      if (timer % 50 === 0) {
+                        score++;
+                      }
+
+
+                      //비 y위치 변경
+                      rains.forEach((a, i, o)=>{ // 요소, 인덱스, 배열
+                        if (a.y > canvas.height) { // d
+                          o.splice(i, 1);
+                        }
+
+                        crash(player, a, i, o);
+
+                        a.y += rainspeed;
+                        a.draw();
+                      });
+
+                        //하트 y위치 변경
+                      hearts.forEach((a, i, o)=>{
+                        if (a.y > canvas.height) {
+                        o.splice(i, 1);
+                        }
+
+                        crash(player, a, i, o);
+
+                        a.y += 4;
+                        a.draw();
+
+                      });
+                    }
+
+                    // 게임 시작, 20ms (0.02초)마다 실행
+                    let game = setInterval(draw , 20);
+                    //충돌 확인
+                    function crash(player, object, index, array){
+                      var ygap = (player.y - player.height) - object.y;
+                        // 오브젝트와 플레이어가 닿았을 때
+                      if ( (player.x < object.x && object.x < player.x + player.width) && ygap < 0) {
+                        // 닿은게 비(장애물)일 때
+                        if (object.isObstacle){
+                          lifes.pop(); // 생명 -1
+                          object.y = 0;
+                          //추가생명이고 생명이 3개 이하일 때
+                        } else if (lifes.length < 3) {
+                          lifes.push(''); // 생명 +1
+                          array.pop();
+                        }
+
+                        //생명이 0개일 때
+                        if (lifes.length == 0){
+                        clearInterval(game);
+                        gameOver();
+                        }
+                      }
+                    }
+                  }
+
+                  //게임오버
+                function gameOver() {
+                  context.clearRect(0, 0, canvas.width, canvas.height);
+                  context.fillStyle = "black";
+                  context.font = "36px IM_Hyemin-Bold";
+                  context.fillText("GAMEOVER", canvas.width/2-100,canvas.height/2 - 10);
+                  context.fillText("점수 : " + score, canvas.width/2-100,canvas.height/2+40);
+                  context.fillStyle = "gray";
+                  context.font = "32px IM_Hyemin-Bold";
+                  context.fillText("다시하기 >> Enter", canvas.width/2-120,canvas.height/2+120);
+                }
+
+        </script>
+      </div>
+       <div class="bottom">
+         <div>←, → 화살표로 이동</div>
+       </div>
+    </div>
+  </body>
+
+</html>
