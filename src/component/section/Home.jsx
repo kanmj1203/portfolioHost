@@ -31,7 +31,7 @@ const HomeTextBox = styled.article`
     ser-select: none;
 
     @media screen and (max-width: 768px) {
-        font-size : 3rem;
+        font-size : 3.625rem;
     }
 `;
 
