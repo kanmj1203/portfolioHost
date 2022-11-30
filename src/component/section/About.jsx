@@ -61,7 +61,7 @@ const IntroduceContent = styled.p`
     margin-left : 10%;
     line-height : ${props => props.contect ? 3 : 2};
     
-    
+    word-break: keep-all;
     & {
         :is(:last-child) {
             margin-bottom : 20px;
@@ -187,7 +187,7 @@ function Home(props) {
                     <IntroduceTitle>NAME</IntroduceTitle>
                     <IntroduceContent>강민지 / Kang Min Ji</IntroduceContent>
                     <IntroduceTitle>EDUCATION</IntroduceTitle>
-                    <IntroduceContent>2020.03 ~ 신구대학교 재학 중</IntroduceContent>
+                    <IntroduceContent>2020.03 ~ 신구대학교 IT소프트웨어 학과 재학 중</IntroduceContent>
                 </Introduce>
                 <Introduce contectBlock>
                     <IntroduceTitle>CONTECT</IntroduceTitle>

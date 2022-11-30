@@ -168,7 +168,7 @@ const DesignImgWrap = styled.div`
    width : 100%;
    height : 90%;
    background-color : rgba(0,0,0,.2);
-   border-radius : 100%;
+   border-radius : 1000px;
 //    box-shadow : 0px 3px 5px rgba(0,0,0,.2);
    display : flex;
     vertical-align: middle;
@@ -191,11 +191,11 @@ const DesignButtonWrap = styled.div`
 
    display : flex;
    align-items: center;
-//    justify-content: space-around;
+   justify-content: space-evenly;
 // word-wrap: keep-all;
    & > button {
     border : none;
-    border-radius : 100px;
+    border-radius : 5px;
     padding : 5px 15px;
     margin : auto 5px;
     background-color : #7A9DE2;

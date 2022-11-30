@@ -190,7 +190,7 @@ const WebImgWrap = styled.div`
    width : 100%;
    height : 90%;
    background-color : rgba(0,0,0,.2);
-   border-radius : 100%;
+   border-radius : 1000px;
 //    box-shadow : 0px 3px 5px rgba(0,0,0,.2);
    display : flex;
     vertical-align: middle;
@@ -213,11 +213,11 @@ const WebButtonWrap = styled.div`
 
    display : flex;
    align-items: center;
-//    justify-content: space-around;
+   justify-content: space-evenly;
 // word-wrap: keep-all;
    & > button {
     border : none;
-    border-radius : 100px;
+    border-radius : 5px;
     padding : 5px 15px;
     margin : auto 5px;
     background-color : #7A9DE2;
@@ -333,7 +333,7 @@ const webs = [
             },
         ],
         img : '/img/web/pos_order.png',
-        color : {backgroundColor :' rgba(250,214,166,.1)',},
+        color : {backgroundColor :' rgba(250,214,166,.25)',},
     }, 
     {
         id : 5,
@@ -385,7 +385,7 @@ const webs = [
             },
         ],
         img : '/img/web/rain_avoid.png',
-        color : {backgroundColor :' rgba(135,206,250,.1)',},
+        color : {backgroundColor :' rgba(135,206,250,.2)',},
     }, 
     {
         id : 6,
