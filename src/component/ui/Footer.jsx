@@ -7,6 +7,8 @@ import styled from "styled-components";
 
 const StyledFooter = styled.footer`
     position: fixed;
+    display : flex;
+    align-items: center; 
     bottom : 0;
     height : 40px;
     width : 100%;
