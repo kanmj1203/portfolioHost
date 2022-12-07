@@ -148,7 +148,7 @@
     .slick-prev,
     .slick-next
     {
-        bottom : -45px;
+        bottom : -25px;
         /* width: 50%; */
     }
     .slick-prev
@@ -173,7 +173,7 @@
     .slick-dots {
         left : 50%;
         transform : translateX(-50%);
-        bottom : -45px;
+        bottom : -25px;
     }
 }
 
